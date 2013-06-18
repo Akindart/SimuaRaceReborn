@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simulaF1>
+	<!-- XML BASE
+	<equipe>
+		<escuderia></escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico></mecanico>
+		<piloto>
+			<nome></nome>
+			<abrev></abrev>
+			<nacionalidade></nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nome></nome>
+			</engenheiro>
+			<carro numero="" cor="">
+				<pneu tipo="" />
+				<combustivel quantidade="250" />
+				<peso></peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome></nome>
+			<abrev></abrev>
+			<nacionalidade></nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nome></nome>
+			</engenheiro>
+			<carro numero="" cor="">
+				<pneu tipo="" />
+				<combustivel quantidade="250" />
+			</carro>
+		</piloto>
+	</equipe>
+	Fim XML Base-->
+	
+	<!-- 
+	 Pontuação F1 
+	1º  lugar – 25 pontos
+	2º  lugar – 18 pontos
+	3º  lugar – 15 pontos
+	4º  lugar – 12 pontos
+	5º  lugar – 10 pontos
+	6º  lugar – 8  pontos
+	7º  lugar – 6  pontos
+	8º  lugar – 4  pontos
+	9°  lugar – 2  pontos
+	10° lugar – 1  ponto
+	-->
+	
+	<!-- Dados equipes -->
+	<equipe>
+		<escuderia>Infiniti Red Bull Racing</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>Joe Pernalarga</mecanico>
+		<piloto>
+			<nome>Sebastian Vettel</nome>
+			<abrev>VET</abrev>
+			<nacionalidade>Alemanha</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="1" cor="azul">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Mark Webber</nome>
+			<abrev>WEB</abrev>
+			<nacionalidade>Australia</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="2" cor="azul">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+</simulaF1>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simulaF1>
+	<!-- XML BASE
+	<equipe>
+		<escuderia></escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico></mecanico>
+		<piloto>
+			<nome></nome>
+			<abrev></abrev>
+			<nacionalidade></nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nome></nome>
+			</engenheiro>
+			<carro numero="" cor="">
+				<pneu tipo="" />
+				<combustivel quantidade="250" />
+				<peso></peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome></nome>
+			<abrev></abrev>
+			<nacionalidade></nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nome></nome>
+			</engenheiro>
+			<carro numero="" cor="">
+				<pneu tipo="" />
+				<combustivel quantidade="250" />
+			</carro>
+		</piloto>
+	</equipe>
+	Fim XML Base-->
+	
+	<!-- 
+	 Pontuação F1 
+	1º  lugar – 25 pontos
+	2º  lugar – 18 pontos
+	3º  lugar – 15 pontos
+	4º  lugar – 12 pontos
+	5º  lugar – 10 pontos
+	6º  lugar – 8  pontos
+	7º  lugar – 6  pontos
+	8º  lugar – 4  pontos
+	9°  lugar – 2  pontos
+	10° lugar – 1  ponto
+	-->
+	
+	<!-- Dados equipes -->
+	<equipe>
+		<escuderia>Infiniti Red Bull Racing</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>Joe Pernalarga</mecanico>
+		<piloto>
+			<nome>Sebastian Vettel</nome>
+			<abrev>VET</abrev>
+			<nacionalidade>Alemanha</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="1" cor="azul">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Mark Webber</nome>
+			<abrev>WEB</abrev>
+			<nacionalidade>Australia</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="2" cor="azul">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+	
+	<equipe>
+		<escuderia>Scuderia Ferrari</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>Albert Mão de Ferro</mecanico>
+		<piloto>
+			<nome>Fernando Alonso</nome>
+			<abrev>ALO</abrev>
+			<nacionalidade>Espanha</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="3" cor="vermelho">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Felipe Massa</nome>
+			<abrev>MAS</abrev>
+			<nacionalidade>Brasil</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="4" cor="vermelho">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+	
+	<equipe>
+		<escuderia>Vodafone McLaren Mercedes</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>Bill Olho de Vidro Caolho</mecanico>
+		<piloto>
+			<nome>Jenson Button</nome>
+			<abrev>BUT</abrev>
+			<nacionalidade>Reuni Runido</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="5" cor="cinza">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Sergio Perez</nome>
+			<abrev>PER</abrev>
+			<nacionalidade>Mexico</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="6" cor="cinza">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+	
+	<equipe>
+		<escuderia>Lotus F1 Team</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>John Dedo de Fenda</mecanico>
+		<piloto>
+			<nome>Kimi Räikkönen</nome>
+			<abrev>RAI</abrev>
+			<nacionalidade>Suiça</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="7" cor="preto">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Romain Grosjean</nome>
+			<abrev>GRO</abrev>
+			<nacionalidade>França</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="8" cor="preto">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+	
+	<equipe>
+		<escuderia>Mercedes AMG Petronas F1 Team</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>Ralph Parafuso</mecanico>
+		<piloto>
+			<nome>Nico Rosberg</nome>
+			<abrev>ROS</abrev>
+			<nacionalidade>Alemanha</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="9" cor="prata">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Lewis Hamilton</nome>
+			<abrev>HAM</abrev>
+			<nacionalidade>Reino Unido</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="10" cor="prata">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+	
+	<equipe>
+		<escuderia>Sauber F1 Team</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>Kelvin Porcasolta</mecanico>
+		<piloto>
+			<nome>Nico Hülkenberg</nome>
+			<abrev>HUL</abrev>
+			<nacionalidade>Alemanha</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="11" cor="chumbo">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Estebán Gutiérrez</nome>
+			<abrev>GUT</abrev>
+			<nacionalidade>Mexico</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="12" cor="chumbo">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+	
+	<equipe>
+		<escuderia>Sahara Force India F1 Team</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>Kelvin Porcasolta</mecanico>
+		<piloto>
+			<nome>Paul di Resta</nome>
+			<abrev>DIR</abrev>
+			<nacionalidade>Reino Unido</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="14" cor="laranja">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Adrian Sutil</nome>
+			<abrev>SUT</abrev>
+			<nacionalidade>Alemanha</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="15" cor="laranja">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+	
+	<equipe>
+		<escuderia>Williams F1 Team</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>Zé Kabum</mecanico>
+		<piloto>
+			<nome>Pastor Maldonado</nome>
+			<abrev>MAL</abrev>
+			<nacionalidade>Equador</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="16" cor="branco">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Valtteri Bottas</nome>
+			<abrev>BOT</abrev>
+			<nacionalidade>Suiça</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="17" cor="branco">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+		
+	<equipe>
+		<escuderia>Scuderia Toro Rosso</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>Oscar Alho</mecanico>
+		<piloto>
+			<nome>Jean-Éric Vergne</nome>
+			<abrev>VER</abrev>
+			<nacionalidade>França</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="18" cor="dourado">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Daniel Ricciardo</nome>
+			<abrev>RIC</abrev>
+			<nacionalidade>Australia</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="19" cor="dourado">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+	
+	<equipe>
+		<escuderia>Caterham F1 Team</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>Tomás Turbando</mecanico>
+		<piloto>
+			<nome>Charles Pic</nome>
+			<abrev>PIC</abrev>
+			<nacionalidade>França</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="20" cor="verde">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Giedo van der Garde</nome>
+			<abrev>VDG</abrev>
+			<nacionalidade>Holanda</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="21" cor="verde">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+	
+	<equipe>
+		<escuderia>Marussia F1 Team</escuderia>
+		<pontuacaoEquipe>0</pontuacaoEquipe>
+		<mecanico>Jacinto Cabeção</mecanico>
+		<piloto>
+			<nome>Jules Bianchi</nome>
+			<abrev>BIA</abrev>
+			<nacionalidade>França</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="22" cor="preto e vermelho">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+		<piloto>
+			<nome>Max Chilton</nome>
+			<abrev>CHI</abrev>
+			<nacionalidade>Reino Unido</nacionalidade>
+			<pontuacao>0</pontuacao>
+			<engenheiro>
+				<nomeEng></nomeEng>
+			</engenheiro>
+			<carro numero="23" cor="preto e vermelho">
+				<pneu tipo="0" />
+				<combustivel quantidade="250" />
+				<peso>800</peso>
+			</carro>
+		</piloto>
+	</equipe>
+</simulaF1>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<campeonato>
+	<pista nome="Albert Park" pais="EUA" seq="1" voltas="58">
+		
+		<distancia>2600</distancia>
+		
+		<pitstop inicio="100" fim="200" />
+		
+		<!-- Trexo de Largada -->
+		<largada loc="1">
+			<inicioLargada>400</inicioLargada>
+		</largada>
+
+		<!-- Trexos de Pista -->
+		<secao loc="1">
+			<velocidade>83.1</velocidade>
+			<m>1000</m>
+			<mInicio>0</mInicio>
+			<mFim>1000</mFim>
+		</secao>
+	
+		<secao loc="2">
+			<velocidade>28.5</velocidade>
+			<m>300</m>
+			<mInicio>1000</mInicio>
+			<mFim>1300</mFim>
+		</secao>
+
+		<secao loc="3">
+			<velocidade>80</velocidade>
+			<m>1000</m>
+			<mInicio>1300</mInicio>
+			<mFim>2300</mFim>
+		</secao>
+
+		<secao loc="4">
+			<velocidade>30</velocidade>
+			<m>300</m>
+			<mInicio>2300</mInicio>
+			<mFim>2600</mFim>
+		</secao>
+	</pista>
+</campeonato>
