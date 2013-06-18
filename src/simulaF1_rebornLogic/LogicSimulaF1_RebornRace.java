@@ -108,14 +108,23 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 
 	private void GodsFuckngWrathAlgorithm(ArrayList<LogicSimulaF1_RebornPilot> pilotsInTheAccident){
 		
-		System.out.println("Fucking God's Wrath Algorithm");
 		
-		if(Math.random() < 0.001){
+		
+		if(Math.random() < 0.0003){
+			
+			System.out.println("Fucking God's Wrath Algorithm");
 			
 			for(LogicSimulaF1_RebornPilot tempPilot : pilotsInTheAccident){
 				
+				try {
+					this.threadsPilots.get(this.getCircuit().getChampionship().getPilotsHashMap().get(tempPilot.getName())).sleep(300);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				this.getCircuit().getChampionship().getPilotsHashMap().get(tempPilot.getName()).setAllDone(true);
-				this.threadsPilots.remove(this.getCircuit().getChampionship().getPilotsHashMap().get(tempPilot.getName()));
+				//this.threadsPilots.remove(this.getCircuit().getChampionship().getPilotsHashMap().get(tempPilot.getName()));
 				
 			}
 			
