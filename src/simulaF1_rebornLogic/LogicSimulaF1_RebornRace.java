@@ -3,6 +3,11 @@ package simulaF1_rebornLogic;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Classe que representa a corrida. Implementa Runnable pois ela será uma thread que
+ * executará a parte da parte principal do programa.
+ * @version 2.0
+ */
 public class LogicSimulaF1_RebornRace implements Runnable {
 
 	private HashMap<LogicSimulaF1_RebornPilot, Thread> threadsPilots;
@@ -14,7 +19,12 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 	private boolean endRace;
 
 
-
+	/**
+	 * Construtor da Classe Corrida.</br>
+	 * @param <code>position</code> - Possição atual dos pilotos</br>
+	 * @param <code>endRace</code> - Variável booleana que fala o fim da corrida.</br>
+	 * @param <code>circuit</code> - Pista atual que será executada.</br>
+	 */
 	public LogicSimulaF1_RebornRace(ArrayList<String> position, boolean endRace, LogicSimulaF1_RebornCircuit circuit) {
 		super();
 		this.position = position;
@@ -27,7 +37,10 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 	}
 
 
-
+	/**
+	 * Método run implementado da interface Runnable. Ele define o que a thread fará
+	 * enquanto ela estiver sendo executada. Utiliza {@link LogicSimulaF1_RebornRace#verifyRaceStatus}
+	 */
 	@Override
 	public void run() {
 
@@ -70,6 +83,15 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 
 	}
 
+	/**
+	 * Verifica o estado dos pilotos durante a corrida para verificar
+	 * a ocorrência de carros perto demais que poderão se envolver num
+	 * acidente, derrapagem de veículos, ou seja, ações que podem desencadear
+	 * outra ação. Utiliza os seguintes métodos:</br>
+	 * {@link LogicSimulaF1_RebornRace#verifyCrash}</br>
+	 * {@link LogicSimulaF1_RebornRace#verifyPosition}</br>
+	 * {@link LogicSimulaF1_RebornRace#GodsFuckngWrathAlgorithm}</br>
+	 */
 	private void verifyRaceStatus(){
 
 
@@ -106,6 +128,12 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 
 	}
 
+	/**
+	 * Algorítmo Ira de Deus. Esse algoritmo verifica os possíveis pilotos que se
+	 * envolverão em acidentes. Calcula uma probabiliade de um acidente acontecer.
+	 * Nota-se que não necessariamente dois carros se envolverão em acidentes.  
+	 * @param <code>pilotsInTheAccident</code> - Array de pilotos envolvidos no possível acidentes
+	 */
 	private void GodsFuckngWrathAlgorithm(ArrayList<LogicSimulaF1_RebornPilot> pilotsInTheAccident){
 		
 		
@@ -132,6 +160,12 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 		
 	}
 	
+	/**
+	 * Verifica, entre dois pilotos, qual está na frente.</br>
+	 * @param <code>tempPilot</code> - Piloto um a ser comparado</br>
+	 * @param <code>tempPilot2</code> - Piloto dois a ser comparado</br>
+	 * @return Retorna 0 quando o tempPilot2 estiver na frente. Caso contrário retorna 1.
+	 */
 	private int verifyPosition(LogicSimulaF1_RebornPilot tempPilot, LogicSimulaF1_RebornPilot tempPilot2){
 
 		if(!(tempPilot.getName().compareTo(tempPilot2.getName()) == 0)){
@@ -147,6 +181,12 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 
 	}
 
+	/**
+	 * Verifica possíveis pilotos que podem se envolver no acidente.</br>
+	 * @param <code>pilots</code> - Array de pilotos onde os pilotos que soferão acidentes serão adicionados
+	 * @param <code>pilot</code> - Possível piloto envolvidos em acidente
+	 * @param <code>pilot2</code> - Possível piloto envolvidos em acidente
+	 */
 	private synchronized void verifyCrash(ArrayList<LogicSimulaF1_RebornPilot> pilots, LogicSimulaF1_RebornPilot pilot, LogicSimulaF1_RebornPilot pilot2){
 		
 		if(Math.abs(pilot.getTotalDistance() - pilot2.getTotalDistance()) <= 2){
@@ -157,6 +197,9 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 		
 	}
 	
+	/**
+	 * Verifica o final da corrida.
+	 */
 	private void verifyEndRace(){
 
 		for(Thread tempThread : this.threadsPilots.values())

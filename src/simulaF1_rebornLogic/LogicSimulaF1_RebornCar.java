@@ -1,5 +1,9 @@
 package simulaF1_rebornLogic;
 
+/**
+ * Classe que representa o carro
+ * @version 2.0
+ */
 public class LogicSimulaF1_RebornCar {
 
 	private LogicSimulaF1_RebornTire tier;
@@ -22,12 +26,21 @@ public class LogicSimulaF1_RebornCar {
 	
 	private String carColor;
 
+	/**
+	 * Contrutor da classe sem parâmetros. Define a velocidade
+	 * máxima como 86.33 metros por segundo.
+	 */
 	public LogicSimulaF1_RebornCar(){
 		
 		this.maxSpeed = 86.33;
 			
 	}
 	
+	/**
+	 * Atualizas os seguintes atributos de carro:</br>
+	 * - Diminui a quantidade de combustível</br>
+	 * - Calcula o desgaste do pneu com a pista
+	 */
 	private void updateCarsAtributes(){
 		
 		this.decreaseFuel();
@@ -35,6 +48,11 @@ public class LogicSimulaF1_RebornCar {
 		
 	}	
 	
+	/**
+	 * Atualiza a velocidade do carro de acordo com a condição do pneu que equipa o carro.</br>
+	 * Chama o método {@link LogicSimulaF1_RebornCar#updateCarsAtributes()}
+	 * @param <code>speed</code> - Velocidade do carro em determinado momento
+	 */
 	public void setSpeedWithInfluencyFromTier(double speed){
 		
 		this.setSpeed(speed);
@@ -59,7 +77,11 @@ public class LogicSimulaF1_RebornCar {
 		this.updateCarsAtributes();
 		
 	}
-			
+		
+	/**
+	 * Diminui a quantidade de combustível disponível no carro. A taxa de queima de
+	 * combustível é calculada com uma constante e a velocidade do carro no momento.
+	 */
 	private void decreaseFuel(){
 		
 		this.fuel = this.fuel - (0.00133*this.speed);
@@ -146,6 +168,17 @@ public class LogicSimulaF1_RebornCar {
 		this.carColor = carColor;
 	}
 
+	/**
+	 * Imprime as seguintes informações do carro:</br>
+	 * - Condições do Pneu</br>
+	 * - Estado do Carro</br>
+	 * - Combustível</br>
+	 * - Velocidade Atual</br>
+	 * - Velocidade Máxima Permitida</br>
+	 * - Peso</br>
+	 * - Numero do Carro</br>
+	 * - Cor do Carro</br>
+	 */
 	@Override
 	public String toString() {
 		return "LogicSimulaF1_RebornCar [tier=" + tier.toString() 
