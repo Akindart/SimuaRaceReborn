@@ -10,22 +10,25 @@ import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.Attributes;
 
+/**
+ * Classe parser para ler os arquivos XML de entrada.
+ * As funções nessa classe são estáticas e nao precisa ser instanciada.
+ * @version 2.0
+ */
 public class XMLparser {
 
-	
-
-
-		public static void leArquivoCampeonato(String nomeArquivoCarregamento, final LogicSimulaF1_RebornChampionship campeonato) {
-			try{
+	/**
+	 * Função estástica que lê o arquivo principal, contendo todas as equipes, pilotos e carros</br>
+	 * @param <code>nomeArquivoCarregamento</code> - Nome do arquivo a ser lido</br>
+	 * @param <code>campeonato</code> - Instancia de Campeonato que contem todas as informações sobre o compeonato</br>
+	 */
+	public static void leArquivoCampeonato(String nomeArquivoCarregamento, final LogicSimulaF1_RebornChampionship campeonato) {
+		try{
 
 				SAXParserFactory factory = SAXParserFactory.newInstance();
 				SAXParser saxParser = factory.newSAXParser();
 
 				DefaultHandler handler = new DefaultHandler() {
-
-					
-
-					//Equipe equipeTemp = new Equipe();
 
 					//PARA EQUIPE
 					boolean equipe;
@@ -127,7 +130,7 @@ public class XMLparser {
 
 							//SETA OS VALORES "equipe" QUE ESTAVA FALTANDO NOS OUTROS OBJETOS
 							mecanicoTemp.setSquad(equipe);
-							
+
 							for(LogicSimulaF1_RebornEngineer eng: engenheirosTemp ) eng.setSquad(equipe);
 							for(LogicSimulaF1_RebornCar car: carrosTemp) car.setSquad(equipe);
 							for(LogicSimulaF1_RebornPilot piloto: pilostosTemp) piloto.setSquad(equipe);
@@ -150,6 +153,7 @@ public class XMLparser {
 							equipe.setTeamName(nomeEscuderia);
 							equipe.setChampionship(campeonato);
 
+					}
 
 							//SETA A EQUIPE NO CAMPEONATO
 							campeonato.getSquads().put(nomeEscuderia, equipe);

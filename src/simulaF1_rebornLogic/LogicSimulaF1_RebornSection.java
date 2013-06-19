@@ -8,9 +8,15 @@ public class LogicSimulaF1_RebornSection {
 	private LogicSimulaF1_RebornCircuit circuit;
 	private double start;
 	private double fim;
-	
-	
-	
+		
+	/**
+	 * Contrutor da Classe.</br>
+	 * @param <code>maxSpeed</code> - Velodidade máxima para a seção</br>
+	 * @param <code>id</code> - Identificação da Seção</br>
+	 * @param <code>lenght</code> - Tamanho do percurso</br>
+	 * @param <code>start</code> - Início da Seção</br>
+	 * @param <code>fim</code> - Fim da Seção</br>
+	 */
 	public LogicSimulaF1_RebornSection(double maxSpeed, int id, double lenght,
 			double start, double fim) {
 		super();
@@ -58,6 +64,14 @@ public class LogicSimulaF1_RebornSection {
 		this.fim = fim;
 	}
 
+	/**
+	 * Imprime as seguintes informações de Seção:</br>
+	 * - Velocidade Máxima</br>
+	 * - Identificador</br>
+	 * - Tamanho</br>
+	 * - Início</br>
+	 * - Fim</br>
+	 */
 	@Override
 	public String toString() {
 		return "LogicSimulaF1_RebornSection [maxSpeed=" + maxSpeed + ", id="
