@@ -383,7 +383,17 @@ public class XMLparser {
 								sec.setCircuit(pista);
 								hashSecao.add(sec);
 							}
-
+							
+							for(LogicSimulaF1_RebornSection tempSection : hashSecao){
+								
+								if(tempSection.getStart() > pista.getPitStopStarts() && tempSection.getFim() < pista.getPitStopEnds()){
+									
+									pista.setSectionPitStopEnds(tempSection.getId() - 1);
+									
+								}
+								
+							}
+							
 							pista.setSctions(hashSecao);
 							pistaTemp.add(pista);
 							campeonato.setCircuits(pistaTemp);

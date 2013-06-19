@@ -51,9 +51,9 @@ public class LogicSimulaF1_RebornPilot extends LogicSimulaF1_RebornPerson implem
 		System.out.println(this.toString());
 
 		while(!this.allDone){
-			
+
 			this.accelerate();
-			
+
 			this.setTotalDistance(this.getTotalDistance() + this.getCar().getSpeed());
 			this.setDistanceCurretLap(this.getDistanceCurretLap() + this.getCar().getSpeed());
 
@@ -63,6 +63,10 @@ public class LogicSimulaF1_RebornPilot extends LogicSimulaF1_RebornPerson implem
 
 			this.changeSection();
 			this.countLap();
+
+			this.setAllDone(this.getSquad().getChampionship().getCurrentCircuit().getPilotRace().getPilots().get(this.getName()).isAllDone());
+
+
 			this.cloneInformationToThreadPool();
 
 			//System.out.println(this.getName()+ ": " + this.getTotalDistance());
@@ -76,37 +80,92 @@ public class LogicSimulaF1_RebornPilot extends LogicSimulaF1_RebornPerson implem
 
 		}
 
+		this.cloneInformationToThreadPool();
+
+		System.out.println("Print do fim do piloto");
+		System.out.println(this.toString());
+
 	}
 
 	private void accelerate(){
 
+		if(this.getSquad().getBounds().get(this.getName()).getStrategy() == 0 )
+			this.accelerateWhitoutStrategy();
+		else this.accelerateWIthStrategy();
+
+	}
+
+	private void accelerateWIthStrategy(){
+
 		if(this.getCurrentSection().getId() < this.getSquad().getChampionship().getCurrentCircuit().getSctions().size()
-				&&	this.getDistanceCurretLap() + this.getCar().getSpeed()*3 > 
-						this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getCurrentSection().getId()).getStart()){
-			
-			if(this.getCar().getMaxSpeed() < this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getCurrentSection().getId()).getMaxSpeed())
-				this.threshold(this.getCar().getMaxSpeed());
+				&&	(this.getDistanceCurretLap() + this.getCar().getSpeed()*3 > 
+				this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getCurrentSection().getId()).getStart() ||
+				this.getDistanceCurretLap() + this.getCar().getSpeed()*8 > this.getSquad().getChampionship().getCurrentCircuit().getPitStopStarts())){
+
+			if(Math.abs(this.getDistanceCurretLap() + this.getCar().getSpeed()*8 - this.getSquad().getChampionship().getCurrentCircuit().getPitStopStarts()) < 
+					Math.abs(this.getDistanceCurretLap() + this.getCar().getSpeed()*3 -
+							this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getCurrentSection().getId()).getStart())){
+
+				this.threshold(this.getSquad().getChampionship().getCurrentCircuit().getPitStops().get(this.getSquad().getTeamName()).getMaxSpeed());
+
+			}
+			else {
 				
-			else this.threshold(this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getCurrentSection().getId()).getMaxSpeed());
-		
+				if(this.getCar().getMaxSpeed() < this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getCurrentSection().getId()).getMaxSpeed())
+					this.threshold(this.getCar().getMaxSpeed());
+
+				else this.threshold(this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getCurrentSection().getId()).getMaxSpeed());
+
+			}
 		}
-		
-		else if(this.getDistanceCurretLap() + this.getCar().getSpeed()*3 > 
-			this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(0).getStart() && 
-				this.getCurrentSection().getId() == 
-					this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getSquad().getChampionship().getCurrentCircuit().getSctions().size() - 1).getStart()){
-			
+
+		else if((this.getDistanceCurretLap() + this.getCar().getSpeed()*3 > 
+		this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(3).getFim() || 
+		)&& 
+		this.getCurrentSection().getId() == this.getSquad().getChampionship().getCurrentCircuit().getSctions().size()){
+
 			if(this.getCar().getMaxSpeed() < this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(0).getMaxSpeed())
 				this.threshold(this.getCar().getMaxSpeed());
-				
+
 			else this.threshold(this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(0).getMaxSpeed());
-			
+
 		}
-		
+
 		else if(this.getCar().getMaxSpeed() <= this.getCurrentSection().getMaxSpeed()) this.threshold(this.getCar().getMaxSpeed());
-		
+
 		else this.threshold(this.getCurrentSection().getMaxSpeed());
-	
+
+	}
+
+	private void accelerateWhitoutStrategy(){
+
+		if(this.getCurrentSection().getId() < this.getSquad().getChampionship().getCurrentCircuit().getSctions().size()
+				&&	this.getDistanceCurretLap() + this.getCar().getSpeed()*3 > 
+		this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getCurrentSection().getId()).getStart()){
+
+			if(this.getCar().getMaxSpeed() < this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getCurrentSection().getId()).getMaxSpeed())
+				this.threshold(this.getCar().getMaxSpeed());
+
+			else this.threshold(this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getCurrentSection().getId()).getMaxSpeed());
+
+		}
+
+		else if(this.getDistanceCurretLap() + this.getCar().getSpeed()*3 > 
+		this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(0).getStart() && 
+		this.getCurrentSection().getId() == this.getSquad().getChampionship().getCurrentCircuit().getSctions().size()){
+
+			if(this.getCar().getMaxSpeed() < this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(0).getMaxSpeed())
+				this.threshold(this.getCar().getMaxSpeed());
+
+			else this.threshold(this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(0).getMaxSpeed());
+
+		}
+
+		else if(this.getCar().getMaxSpeed() <= this.getCurrentSection().getMaxSpeed()) this.threshold(this.getCar().getMaxSpeed());
+
+		else this.threshold(this.getCurrentSection().getMaxSpeed());
+
+
 	}
 
 	private void threshold(double thresholdSpeed){
@@ -135,21 +194,29 @@ public class LogicSimulaF1_RebornPilot extends LogicSimulaF1_RebornPerson implem
 	}
 
 	private void changeSection(){
-		
-		if(this.getCurrentSection().getId() < this.getSquad().getChampionship().getCurrentCircuit().getSctions().size() && 
+
+		if(this.getSquad().getBounds().get(this.getName()).getStrategy() != 0 && this.getDistanceCurretLap() > 
+		this.getSquad().getChampionship().getCurrentCircuit().getPitStopStarts())
+			this.setCurrentSection(this.getSquad().getChampionship().getCurrentCircuit().getPitStops().get(this.getSquad().getTeamName()));
+
+		else if(this.getCurrentSection().equals(this.getSquad().getChampionship().getCurrentCircuit().getPitStops().get(this.getSquad().getTeamName())) && 
+				this.getDistanceCurretLap() > this.getSquad().getChampionship().getCurrentCircuit().getPitStopEnds())
+			this.setCurrentSection(this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.getSquad().getChampionship().getCurrentCircuit().getSectionPitStopEnds()));
+
+		else if(this.getCurrentSection().getId() < this.getSquad().getChampionship().getCurrentCircuit().getSctions().size() && 
 				this.getDistanceCurretLap() > this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.currentSection.getId()).getStart()){
-		
+
 			//System.out.println("entrei no primeiro if");
 			this.setCurrentSection(this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(this.currentSection.getId()));
-			
+
 		}
 		else if(this.getDistanceCurretLap() >= this.getSquad().getChampionship().getCurrentCircuit().getLenghtCircuit()){
-			
+
 			//System.out.println("entrei no segundo if");
 			this.setCurrentSection(this.getSquad().getChampionship().getCurrentCircuit().getSctions().get(0));
-			
+
 		}
-		
+
 	}
 
 	private void cloneInformationToThreadPool(){
@@ -170,9 +237,13 @@ public class LogicSimulaF1_RebornPilot extends LogicSimulaF1_RebornPerson implem
 		if(this.getDistanceCurretLap() >=  this.getSquad().getChampionship().getCurrentCircuit().getLenghtCircuit()){
 			//System.out.println("LAPS: " + this.getName()+ ": " + this.getCurrentLap());
 			currentLap++;
-			
-			if(this.getCurrentLap() > this.getSquad().getChampionship().getCurrentCircuit().getLaps())
+
+			if(this.getCurrentLap() > this.getSquad().getChampionship().getCurrentCircuit().getLaps()){
+
 				this.setDistanceCurretLap(0.0);
+				this.setCurrentLap(0);
+
+			}
 			else this.setDistanceCurretLap(this.getDistanceCurretLap() - this.getSquad().getChampionship().getCurrentCircuit().getLenghtCircuit());
 		}
 
@@ -182,127 +253,102 @@ public class LogicSimulaF1_RebornPilot extends LogicSimulaF1_RebornPerson implem
 		return points;
 	}
 
-
 	public synchronized void setPoints(int points) {
 		this.points = points;
 	}
-
 
 	public synchronized LogicSimulaF1_RebornTeam getSquad() {
 		return squad;
 	}
 
-
 	public synchronized void setSquad(LogicSimulaF1_RebornTeam squad) {
 		this.squad = squad;
 	}
-
 
 	public synchronized LogicSimulaF1_RebornEngineer getEngineer() {
 		return engineer;
 	}
 
-
 	public synchronized void setEngineer(LogicSimulaF1_RebornEngineer engineer) {
 		this.engineer = engineer;
 	}
-
 
 	public synchronized LogicSimulaF1_RebornCar getCar() {
 		return car;
 	}
 
-
 	public synchronized void setCar(LogicSimulaF1_RebornCar car) {
 		this.car = car;
 	}
 
-
 	public synchronized LogicSimulaF1_RebornSection getCurrentSection() {
 		return currentSection;
 	}
-
 
 	public synchronized void setCurrentSection(
 			LogicSimulaF1_RebornSection currentSection) {
 		this.currentSection = currentSection;
 	}
 
-
 	public synchronized String getSigla() {
 		return sigla;
 	}
-
 
 	public synchronized void setSigla(String sigla) {
 		this.sigla = sigla;
 	}
 
-
 	public synchronized String getNacionality() {
 		return nacionality;
 	}
-
 
 	public synchronized void setNacionality(String nacionality) {
 		this.nacionality = nacionality;
 	}
 
-
 	public synchronized boolean isAllDone() {
 		return allDone;
 	}
-
 
 	public synchronized void setAllDone(boolean allDone) {
 		this.allDone = allDone;
 	}
 
-
 	public synchronized int getStrategy() {
 		return strategy;
 	}
-
 
 	public synchronized void setStrategy(int strategy) {
 		this.strategy = strategy;
 	}
 
-
 	public synchronized String getEngineerOrder() {
 		return engineerOrder;
 	}
-
 
 	public synchronized void setEngineerOrder(String engineerOrder) {
 		this.engineerOrder = engineerOrder;
 	}
 
-
 	public synchronized double getDistanceCurretLap() {
 		return distanceCurretLap;
 	}
-
 
 	public synchronized void setDistanceCurretLap(double distanceCurretLap) {
 		this.distanceCurretLap = distanceCurretLap;
 	}
 
-
 	public synchronized double getTotalDistance() {
 		return totalDistance;
 	}
-
 
 	public synchronized void setTotalDistance(double totalDistance) {
 		this.totalDistance = totalDistance;
 	}
 
-
 	public synchronized int getCurrentLap() {
 		return currentLap;
 	}
-
 
 	public synchronized void setCurrentLap(int currentLap) {
 		this.currentLap = currentLap;

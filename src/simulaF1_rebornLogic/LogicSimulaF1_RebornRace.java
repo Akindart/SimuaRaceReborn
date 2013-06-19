@@ -55,9 +55,9 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 			//System.out.println(tempPilot.toString());
 			//}
 			this.verifyRaceStatus();
-			System.out.println(this.position.toString());
-			System.out.println("[" + this.getCircuit().getPilotRace().getPilots().get(this.position.get(0)).getTotalDistance() + ", " + 
-					this.getCircuit().getPilotRace().getPilots().get(this.position.get(1)).getTotalDistance() + "]");
+			//System.out.println(this.position.toString());
+			//System.out.println("[" + this.getCircuit().getPilotRace().getPilots().get(this.position.get(0)).getTotalDistance() + ", " + 
+					//this.getCircuit().getPilotRace().getPilots().get(this.position.get(1)).getTotalDistance() + "]");
 			this.verifyEndRace();
 
 			
@@ -86,15 +86,26 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 				
 				this.verifyCrash(pilotsInTheAccident, tempPilot, tempPilot2);
 				
-				System.out.println(pilotsInTheAccident.toString());
-				
-				
+				//System.out.println(pilotsInTheAccident.toString());
+							
 				position += this.verifyPosition(tempPilot, tempPilot2);
 
 			}
 			
+			System.out.println("\n\n\n\n\n\n\n\n\n");
+			
+			System.out.println("Antes do verify skid: " + tempPilot.getCurrentSection());			
+			
+			System.out.println("\n\n\n\n\n\n\n\n\n");
+			
+			//this.verifySkid(tempPilot);
+			
+			
 			if(pilotsInTheAccident.size() > 1)
 				this.GodsFuckngWrathAlgorithm(pilotsInTheAccident);
+			
+			
+			
 			
 			this.position.remove(tempPilot.getName());
 			this.position.add(position, tempPilot.getName());
@@ -107,24 +118,15 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 	}
 
 	private void GodsFuckngWrathAlgorithm(ArrayList<LogicSimulaF1_RebornPilot> pilotsInTheAccident){
-		
-		
-		
+				
 		if(Math.random() < 0.0003){
 			
 			System.out.println("Fucking God's Wrath Algorithm");
 			
 			for(LogicSimulaF1_RebornPilot tempPilot : pilotsInTheAccident){
-				
-				try {
-					this.threadsPilots.get(this.getCircuit().getChampionship().getPilotsHashMap().get(tempPilot.getName())).sleep(300);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				this.getCircuit().getChampionship().getPilotsHashMap().get(tempPilot.getName()).setAllDone(true);
-				//this.threadsPilots.remove(this.getCircuit().getChampionship().getPilotsHashMap().get(tempPilot.getName()));
+						
+				this.getCircuit().getPilotRace().getPilots().get(tempPilot.getName()).setAllDone(true);
+						
 				
 			}
 			
@@ -147,6 +149,60 @@ public class LogicSimulaF1_RebornRace implements Runnable {
 
 	}
 
+	private synchronized void verifySkid(LogicSimulaF1_RebornPilot pilot){
+		
+		//System.out.println("pilot.getCar().getSpeed()=" + pilot.getCar().getSpeed() );
+		
+		//System.out.println("\n\n\n\n\n\n\n\n");
+		
+		//System.out.println(pilot.getCurrentSection());
+		
+		//System.out.println("\n\n\n\n\n\n\n\n");
+		
+		//System.out.println("pilot.getCurrentSection().getMaxSpeed()=" + pilot.getCurrentSection().getMaxSpeed() );
+		
+		if(pilot.getCar().getSpeed() > (pilot.getCurrentSection().getMaxSpeed() + 5)){
+			
+			try {
+				this.threadsPilots.get(this.getCircuit().getChampionship().getPilotsHashMap().get(pilot.getName())).sleep(300);
+			} catch (InterruptedException e) {
+				
+				System.out.println("aqui");
+				
+				e.printStackTrace();
+			}
+			
+			LogicSimulaF1_RebornSection section = this.getCircuit().getPilotRace().getPilots().get(pilot.getName()).getCurrentSection();
+			
+			this.getCircuit().getChampionship().getPilotsHashMap().get(pilot.getName()).setAllDone(true);
+			
+			this.getCircuit().getPilotRace().getPilots().get(pilot.getName()).setCurrentSection(section);
+			
+		}
+		
+		else if(pilot.getCar().getSpeed() > pilot.getCurrentSection().getMaxSpeed()){
+			
+			if(Math.random() < 0.02){
+				
+				try {
+					this.threadsPilots.get(this.getCircuit().getChampionship().getPilotsHashMap().get(pilot.getName())).sleep(300);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				LogicSimulaF1_RebornSection section = this.getCircuit().getPilotRace().getPilots().get(pilot.getName()).getCurrentSection();
+				
+				this.getCircuit().getChampionship().getPilotsHashMap().get(pilot.getName()).setAllDone(true);
+				
+				this.getCircuit().getPilotRace().getPilots().get(pilot.getName()).setCurrentSection(section);
+				
+			}
+			
+		}
+		
+	}
+	
 	private synchronized void verifyCrash(ArrayList<LogicSimulaF1_RebornPilot> pilots, LogicSimulaF1_RebornPilot pilot, LogicSimulaF1_RebornPilot pilot2){
 		
 		if(Math.abs(pilot.getTotalDistance() - pilot2.getTotalDistance()) <= 2){

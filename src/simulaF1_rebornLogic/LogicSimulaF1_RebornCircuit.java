@@ -16,7 +16,8 @@ public class LogicSimulaF1_RebornCircuit {
 	private LogicSimulaF1_RebornChampionship championship;
 	private LogicSimulaF1_RebornRace race;	
 	private int pitStopStarts;	
-	private int pitStopEnds;	
+	private int pitStopEnds;
+	private int sectionPitStopEnds;
 	private int start;
 	private BoundPilotRace pilotRace;
 	
@@ -94,6 +95,7 @@ public class LogicSimulaF1_RebornCircuit {
 			
 			String tempPilot = positions.remove(i);
 			int rand = (int)(Math.random()*positions.size());
+			System.out.println("rand=" + rand);
 			this.championship.getPilotsHashMap().get(tempPilot).setCurrentSection(this.championship.getCurrentCircuit().getSctions().get(0));
 			this.championship.getPilotsHashMap().get(tempPilot).setDistanceCurretLap(auxPositionStart);
 			this.championship.getPilotsHashMap().get(tempPilot).setTotalDistance(auxPositionStart);
@@ -204,6 +206,16 @@ public class LogicSimulaF1_RebornCircuit {
 	public synchronized void setPilotRace(BoundPilotRace pilotRace) {
 		this.pilotRace = pilotRace;
 	}
+	
+	
+	public synchronized int getSectionPitStopEnds() {
+		return sectionPitStopEnds;
+	}
+
+	public synchronized void setSectionPitStopEnds(int sectionPitStopEnds) {
+		this.sectionPitStopEnds = sectionPitStopEnds;
+	}
+
 	@Override
 	public String toString() {
 		
@@ -220,7 +232,7 @@ public class LogicSimulaF1_RebornCircuit {
 				+ ", lenghtCircuit=" + lenghtCircuit + ", laps="
 				+ laps + ", pitStopStarts="
 				+ pitStopStarts + ", pitStopEnds=" + pitStopEnds + ", start="
-				+ start + "\n"
+				+ start + ", " +"\n"
 				+ circuitString				
 				+ "]";
 	}
