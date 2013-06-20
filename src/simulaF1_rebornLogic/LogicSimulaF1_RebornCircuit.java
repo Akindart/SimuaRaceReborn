@@ -3,6 +3,10 @@ package simulaF1_rebornLogic;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+/**
+ * Classe que representa a pista no campeonato.
+ * @version 2.0
+ */
 public class LogicSimulaF1_RebornCircuit {
 
 	private String name;
@@ -21,18 +25,17 @@ public class LogicSimulaF1_RebornCircuit {
 	private int start;
 	private BoundPilotRace pilotRace;
 	
+	/**
+	 * Construtor da classe.
+	 */
 	public LogicSimulaF1_RebornCircuit() {
 		super();
-				
-		
-				
 	}
 	
 	/**
-	 * 
-	 * Método que inicia a corrida referente a esta pista.
-	 * 
-	 * 
+	 * Inicia a corrida com esta pista.</br>
+	 * Utiliza:</br>
+	 * - {@link LogicSimulaF1_RebornCircuit#prepareCarsForRace}
 	 */
 	public void startRace() {
 	
@@ -79,9 +82,8 @@ public class LogicSimulaF1_RebornCircuit {
 	/**
 	 * Define o gride de largada da corrida que ocorrera nesta
 	 * instância da Pista através de um metodo pseudo-randômico
-	 * de seleção
-	 * 
-	 * @return
+	 * de seleção. 
+	 * @return ArrayList de pilotos na ordem dogrid de largada
 	 */	
 	public ArrayList<String> startGrid(){
 		
@@ -110,6 +112,10 @@ public class LogicSimulaF1_RebornCircuit {
 		
 	}
 	
+	/**
+	 * Inicializa as informações padrões do carro: combustível e o estado dele.
+	 * @param <code>pilot</code> - Piloto a qual as informações serão inicializadas.
+	 */
 	public void prepareCarsForRace(LogicSimulaF1_RebornPilot pilot){
 		
 		pilot.getCar().setFuel(250);
@@ -206,8 +212,7 @@ public class LogicSimulaF1_RebornCircuit {
 	public synchronized void setPilotRace(BoundPilotRace pilotRace) {
 		this.pilotRace = pilotRace;
 	}
-	
-	
+		
 	public synchronized int getSectionPitStopEnds() {
 		return sectionPitStopEnds;
 	}
@@ -216,6 +221,19 @@ public class LogicSimulaF1_RebornCircuit {
 		this.sectionPitStopEnds = sectionPitStopEnds;
 	}
 
+	/**
+	 * Imprime as seguintes informações da pista:</br>
+	 * - Nome</br>
+	 * - País</br>
+	 * - Id</br>
+	 * - Tempo</br>
+	 * - Tamanho da pista</br>
+	 * - Voltas</br>
+	 * - Início Pitstop</br>
+	 * - Fim Pitstop</br>
+	 * - Largada<br>
+	 * - Seções
+	 */
 	@Override
 	public String toString() {
 		

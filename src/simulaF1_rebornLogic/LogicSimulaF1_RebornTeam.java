@@ -3,6 +3,10 @@ package simulaF1_rebornLogic;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Classe que representa a equipe.
+ * @version 2.0
+ */
 public class LogicSimulaF1_RebornTeam {
 	
 	private LogicSimulaF1_RebornMechanic mechanic;
@@ -23,6 +27,9 @@ public class LogicSimulaF1_RebornTeam {
 	
 	private HashMap<String, LogicSimulaF1_RebornBoundPilotEngineer> bounds;
 	
+	/**
+	 * Construtor da classe.
+	 */
 	public LogicSimulaF1_RebornTeam() {
 		super();
 	}
@@ -95,8 +102,6 @@ public class LogicSimulaF1_RebornTeam {
 		this.championship = championship;
 	}
 	
-	
-
 	public synchronized HashMap<String, LogicSimulaF1_RebornBoundPilotEngineer> getBounds() {
 		return bounds;
 	}
@@ -106,6 +111,11 @@ public class LogicSimulaF1_RebornTeam {
 		this.bounds = bounds;
 	}
 
+	/**
+	 * Imprime as seguintes informações da Equipe:</br>
+	 * - Pilotos</br>
+	 * - Engenheiros</br>
+	 */
 	@Override
 	public String toString() {
 		
@@ -123,7 +133,4 @@ public class LogicSimulaF1_RebornTeam {
 		
 	}
 	
-	
-	
-
 }

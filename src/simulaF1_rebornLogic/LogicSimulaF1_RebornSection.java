@@ -1,5 +1,9 @@
 package simulaF1_rebornLogic;
 
+/**
+ * Classe que representa seção.
+ * @version 2.0
+ */
 public class LogicSimulaF1_RebornSection {
 
 	private double maxSpeed;

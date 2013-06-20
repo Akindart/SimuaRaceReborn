@@ -382,6 +382,7 @@ public class XMLparser {
 						pista.setId(pistaID);
 						pista.setLenghtCircuit(distanciaPista);
 						pista.setLaps(voltas);
+						
 						pista.setPitStops(new HashMap<LogicSimulaF1_RebornTeam,PitStop>());
 						//pista.setEquipes(campeonato.getSquads());	
 						pista.setStart(valorInicioLargada);
@@ -392,6 +393,7 @@ public class XMLparser {
 							sec.setCircuit(pista);
 							hashSecao.add(sec);
 						}
+						
 
 						for(LogicSimulaF1_RebornSection tempSection : hashSecao){
 

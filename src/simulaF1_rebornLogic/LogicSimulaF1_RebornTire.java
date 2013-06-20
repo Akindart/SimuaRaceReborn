@@ -1,17 +1,30 @@
 package simulaF1_rebornLogic;
 
+/**
+ * Classe que representa o pneu
+ * @version 2.0
+ */
 public class LogicSimulaF1_RebornTire {
 
 	private int type;
 	
 	private double abrasion;
 
+	/**
+	 * Construtor com parâmetros.
+	 * @param <code>type</code> - Tipo do pneu selecionado
+	 * @param <code>abrasion</code> - Desgaste inicial do pneu
+	 */
 	public LogicSimulaF1_RebornTire(int type, double abrasion) {
 		super();
 		this.type = type;
 		this.abrasion = abrasion;
 	}
 	
+	/**
+	 * Calcula o desgaste do pneu
+	 * @param <code>tempo</code> - Condição climática que influe no desgaste do pneu
+	 */
 	public void abrasionCalc(int tempo){
 		
 		double auxAbrasion;
@@ -56,6 +69,11 @@ public class LogicSimulaF1_RebornTire {
 		this.abrasion = abrasion;
 	}
 
+	/**
+	 * Imprime as seguintes informações de pneu:</br>
+	 * - Tipo</br>
+	 * - Desgaste</br>
+	 */
 	@Override
 	public String toString() {
 		return "LogicSimulaF1_RebornTire [type=" + type + ", abrasion="

@@ -1,6 +1,9 @@
 package simulaF1_rebornLogic;
 
-
+/**
+ * Classe que representa o Engenheiro. Estende a classe {@link LogicSimulaF1_RebornPerson}.
+ * @version 2.0
+ */
 public class LogicSimulaF1_RebornEngineer extends LogicSimulaF1_RebornPerson implements Runnable{
 	
 	private LogicSimulaF1_RebornTeam squad;
@@ -9,12 +12,20 @@ public class LogicSimulaF1_RebornEngineer extends LogicSimulaF1_RebornPerson imp
 	
 	private boolean allDone;
 	
-	
+	/**
+	 * Construtor da classe sem parâmetros.
+	 */
 	public LogicSimulaF1_RebornEngineer() {
 		super();
 	}
 
-
+	/**
+	 * Contrutor da classe com parâmetros
+	 * @param <code>squad</code> - Equipe a qual pertence o engenheiro
+	 * @param <code>pilotName</code> - Nome do piloto a qual pertence o engenheiro
+	 * @param <code>strategy</code> - Estratégia definida para a corrida
+	 * @param <code>name</code> - Nome do engenheiro passado para o construtor da classe. Veja {@link LogicSimulaF1_RebornPerson}
+	 */
 	public LogicSimulaF1_RebornEngineer(LogicSimulaF1_RebornTeam squad,
 			String pilotName, int strategy, String name) {
 		super(name);
@@ -24,7 +35,9 @@ public class LogicSimulaF1_RebornEngineer extends LogicSimulaF1_RebornPerson imp
 		
 	}
 
-
+	/**
+	 * Método implementado que está especificado na interface {@link Runnable}.
+	 */
 	@Override
 	public void run() {
 		
@@ -36,6 +49,9 @@ public class LogicSimulaF1_RebornEngineer extends LogicSimulaF1_RebornPerson imp
 		
 	}
 	
+	/**
+	 * Define a estratégia que o respectivo piloto desse engenheiro seguirá durante a corruida.
+	 */
 	private void defineStrategy(){
 		
 		double fuelSpended = 250 - this.getSquad().getPilots().get(this.getPilotName()).getCar().getFuel();
@@ -92,16 +108,13 @@ public class LogicSimulaF1_RebornEngineer extends LogicSimulaF1_RebornPerson imp
 		return pilotName;
 	}
 
-
 	public synchronized void setPilotName(String pilotName) {
 		this.pilotName = pilotName;
 	}
 
-
 	public synchronized LogicSimulaF1_RebornTeam getSquad() {
 		return squad;
 	}
-
 
 
 	public synchronized void setSquad(LogicSimulaF1_RebornTeam squad) {
@@ -117,15 +130,15 @@ public class LogicSimulaF1_RebornEngineer extends LogicSimulaF1_RebornPerson imp
 		this.allDone = allDone;
 	}
 
-
+	/**
+	 * Imprime as seguintes informações de engenheiro:</br>
+	 * - Nome do engenheiro</br>
+	 * - Nome do piloto</br>
+	 */
 	@Override
 	public String toString() {
 		return "LogicSimulaF1_RebornEngineer [name="+ super.getName() + ", pilotName="
 				+ pilotName + "]";
 	}
-	
-	
-	
-	
 	
 }

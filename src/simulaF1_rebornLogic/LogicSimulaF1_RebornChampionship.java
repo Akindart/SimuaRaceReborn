@@ -3,13 +3,20 @@ package simulaF1_rebornLogic;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Classe Campeonato. Genrecia todo o campeonato em simulação
+ * @version 2.0
+ */
 public class LogicSimulaF1_RebornChampionship {
 
 	private HashMap<String, LogicSimulaF1_RebornTeam> squads;
 	private ArrayList<LogicSimulaF1_RebornCircuit> circuits;
 	private LogicSimulaF1_RebornCircuit currentCircuit;
 	
-		
+	/**
+	 * Método Construtor da classe. Define um hash para armazenar as equipes
+	 * e um arraylist para armazenar as pistas.
+	 */
 	public LogicSimulaF1_RebornChampionship() {
 		super();
 		
@@ -18,6 +25,10 @@ public class LogicSimulaF1_RebornChampionship {
 		
 	}
 	
+	/**
+	 * Inicia a próxima corrida do campeonato.
+	 * @param <code>id</code> - Identificador da proxima pista a ser simulada
+	 */
 	public void startNextRace(int id){
 		
 		this.currentCircuit = this.getCircuits().get(id);
@@ -51,7 +62,12 @@ public class LogicSimulaF1_RebornChampionship {
 			LogicSimulaF1_RebornCircuit currentCircuit) {
 		this.currentCircuit = currentCircuit;
 	}
-
+	
+	/**
+	 * Pela todos os pilotos de todas as equipes e coloca num arrylist para ser 
+	 * mais fácil de manipular.
+	 * @return ArrayList com todos os pilotos do campeonato.
+	 */
 	public ArrayList<LogicSimulaF1_RebornPilot> getPilotsArrayList(){
 		
 		ArrayList<LogicSimulaF1_RebornPilot> pilots = new ArrayList<>();
@@ -64,6 +80,10 @@ public class LogicSimulaF1_RebornChampionship {
 		
 	}
 	
+	/**
+	 * Pela todos os pilotos de todas as equipes e coloca num Hashmap para ser manipulado.
+	 * @return Hashmap com todos os pilotos do campeonato.
+	 */
 	public HashMap<String, LogicSimulaF1_RebornPilot> getPilotsHashMap(){
 		
 		HashMap<String, LogicSimulaF1_RebornPilot> pilots = new HashMap<>();
@@ -76,7 +96,11 @@ public class LogicSimulaF1_RebornChampionship {
 		
 	}
 	
-	
+	/**
+	 * Imprime as seguintes informações de campeonato:</br>
+	 * - Esquipes</br>
+	 * - Pistas</br>
+	 */
 	@Override
 	public String toString() {
 	

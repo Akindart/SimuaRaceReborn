@@ -1,15 +1,20 @@
 package simulaF1_rebornLogic;
 
+/**
+ * Classe que representa a pitstop. Pitstop é uma seção especial.
+ * @version 2.0
+ */
 public class PitStop extends LogicSimulaF1_RebornSection{
 
 	private LogicSimulaF1_RebornTeam team;
 	
 	private LogicSimulaF1_RebornPilot waitingPilot;
 
+	/**
+	 * Construtor da classe. 
+	 */
 	public PitStop() {
 		super(22.3, 0, 80.0, 0.0, 80.0);
-		this.team = team;
-		this.waitingPilot = waitingPilot;
 	}
 
 	public synchronized LogicSimulaF1_RebornTeam getTeam() {
@@ -27,7 +32,5 @@ public class PitStop extends LogicSimulaF1_RebornSection{
 	public synchronized void setWaitingPilot(LogicSimulaF1_RebornPilot waitingPilot) {
 		this.waitingPilot = waitingPilot;
 	}
-	
-	
 	
 }
